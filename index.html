@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>MEMORY GAME</title>
+</head>
+<body>
+    <div class = "main-container">
+        <header>
+            <h1>Gotta Match 'Em All</h1>
+        </header>
+
+        <section class = "moves-timer">
+            <span class = "moveCounter" id = "moves">0</span> Move(s)
+            <span class = "countTimer" id = "timer">0 mins 0 sec</span>
+            <button class = "start-btn" id = "start" onclick = "startGame()">Start Game</button>
+        </section>
+        
+    <div class = "platform-container">
+        <li class = "card-deck">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>
+            <div class = "card-front card-face">
+                <img class = "pokemon" src ="img/pikachu.png">
+            </div>
+        </li>
+        <li class = "card-deck ">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>    
+            <div class = "card-front card-face">
+                <img class = "pokemon" src ="img/bulbasaur.png">
+            </div>
+        </li>
+        <li class = "card-deck">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>
+            <div class = "card-front card-face">
+                <img class = "pokemon" src =  "img/charizard.png">
+            </div>
+        </li>
+        <li class = "card-deck">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>
+            <div class = "card-front card-face">
+                <img class = "pokemon" src ="img/evee.png">
+            </div>
+        </li>
+        <li class = "card-deck">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>
+            <div class = "card-front card-face">
+                <img class = "pokemon" src ="img/squirtle.png">
+            </div>
+        </li>
+        <li class = "card-deck">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>
+            <div class = "card-front card-face">
+                <img class = "pokemon" src ="img/vulpix.png">
+            </div>
+        </li>
+        <li class = "card-deck">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>
+            <div class = "card-front card-face">
+                <img class = "pokemon" src ="img/pikachu.png">
+            </div>
+        </li>
+        <li class = "card-deck">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>
+            <div class = "card-front card-face">
+                <img class = "pokemon" src ="img/bulbasaur.png">
+            </div>
+        </li>
+        <li class = "card-deck">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>
+            <div class = "card-front card-face">
+                <img class = "pokemon" src =  "img/charizard.png">
+            </div>
+        </li>
+        <li class = "card-deck">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>
+            <div class = "card-front card-face">
+                <img class = "pokemon" src ="img/evee.png">
+            </div>
+        </li>
+        <li class = "card-deck">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>
+            <div class = "card-front card-face">
+                <img class = "pokemon" src ="img/squirtle.png">
+            </div>
+        </li>
+        <li class = "card-deck">
+            <div class = "card-back card-face">
+                <img class = "pokeball" src ="img/pokeball.png">
+            </div>
+            <div class = "card-front card-face">
+                <img class = "pokemon" src ="img/vulpix.png">
+            </div>
+        </li>
+    </div>
+
+    <div class = "message" id = "gameOver">
+        <div class = "popup">
+        <h2>CONGRATULATIONS!</h2>
+        <p>You made <span id = totalMoves></span> moves.</p>
+        <p>in <span id = totalTime></span></p>
+        <button id = "play-again" onclick = "playAgain()">Play Again</button>
+        </div>
+    </div>
+        
+
+    <div class = "disclaimer">
+        <footer>DISCLAIMER:</footer>
+    </div>
+    
+    <script src="script.js"></script>
+    </div>
+</body>
+</html>

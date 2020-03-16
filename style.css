@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+    cursor: url("http://www.rw-designer.com/cursor-extern.php?id=22253"), auto;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(#ffff31, #e4d00a);
+}
+
+.main-container {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-shadow: 2px 2px #ff0000;
+    text-align: center;
+}
+
+.moves-timer {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.timer {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+.platform-container {
+    margin: auto;
+    margin-top: 5px;
+    width: 50%;
+    height: 75vh;
+    background-color: white;
+    box-shadow: 10px 10px 20px lightgrey;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    perspective: 500px;
+}
+
+.card-deck {
+    position: relative;
+    width: 15%;
+    height: 25%;
+    margin: 25px;
+    padding: 1rem;
+    border-radius: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 4px 4px 26px 0 lightblue;
+    border-radius: 5px;
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transition: transform 500ms ease-in-out;
+}
+
+.card-deck:hover .card-back {
+    transform: rotateY(-180deg);
+}
+
+.card-deck:hover .card-front {
+    transform: rotateY(0);
+}
+
+.card-deck.matched.pokemon {
+    animation: dance 1s linear infinite 500ms;
+}
+
+@keyframes dance {
+    0%, 100% {
+        transform: rotate(0);    
+    }
+    25% {
+        transform: rotate(-20deg);
+    }
+    75% {
+        transform: rotate(20deg);
+    }
+}
+
+.card-back {
+    background: lightblue;
+}
+
+.pokeball {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-front {
+    background-color: #FFFFFF;
+    transform: rotateY(180deg);
+}
+
+.pokemon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.message {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    width: 85%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.play-again {
+    background-color: #141214;
+    padding: 2px;
+    font-size: 2px;
+    display: block;
+    margin: 0 auto;
+    width: 5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+/* @media (max-width: 600px) {
+    .platform-container {
+
+    }
+} */
