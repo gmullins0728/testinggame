@@ -8,39 +8,6 @@ body {
     cursor: url("http://www.rw-designer.com/cursor-extern.php?id=22253"), auto;
 }
 
-ol, ul {
-    list-style: none;
-}
-
-em {
-    font-style: italic;
-}
-
-.red-button {
-	-webkit-box-shadow: 3px 4px 0px 0px rgb(145, 7, 7);
-	box-shadow: 3px 4px 0px 0px rgb(145, 7, 7);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, rgb(184, 31, 4)), color-stop(1, #795548));
-	border-radius: 0.3em;
-	border: 1px solid #6D4C41;
-	font-size: 1.2em;
-	font-weight: bold;
-	text-shadow: 0px 1px 0px #8D6E63;
-}
-
-.red-button:hover {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #795548), color-stop(1, rgb(184, 31, 4)));
-	background-color: #795548;
-}
-
-.red-button:active {
-	position: relative;
-	top: 0.15em;
-}
-
-.red-button:focus {
-    outline-color: #D7CCC8;
-}
-
 h1 {
     margin:auto;
     font-family: 'Quattrocento Sans', sans-serif;
@@ -105,10 +72,6 @@ h1 {
     height: 4.5em;
 }
 
-.match {
-    animation: dance 1s linear infinite 500ms;
-}
-
 .start-button-div {
     max-width: 50%;
     margin: 1.5em auto;
@@ -117,6 +80,31 @@ h1 {
 
 .start-button { 
 	padding: 0.7em 1.4em;
+}
+
+.red-button {
+	-webkit-box-shadow: 3px 4px 0px 0px rgb(145, 7, 7);
+	box-shadow: 3px 4px 0px 0px rgb(145, 7, 7);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, rgb(184, 31, 4)), color-stop(1, #795548));
+	border-radius: 0.3em;
+	border: 1px solid #6D4C41;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-shadow: 0px 1px 0px #8D6E63;
+}
+
+.red-button:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #795548), color-stop(1, rgb(184, 31, 4)));
+	background-color: #795548;
+}
+
+.red-button:active {
+	position: relative;
+	top: 0.15em;
+}
+
+.red-button:focus {
+    outline-color: #D7CCC8;
 }
 
 /* Game Over Modal */
@@ -178,41 +166,13 @@ h1 {
     width: 50%;
 }
 
-
-/* Page Footer */
-.page-footer {
-    border-top: 1px solid #D7CCC8;
-    padding: 0.5em 0;
-    text-align: center;
-    font-size: 1.3em;
-}
-
-.page-footer-link {
-    color: #5D4037;
-    font-weight: 700;
-}
-
-.page-footer-link:hover {
-    color: #212121;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
-
-.page-footer-link:active {
-    text-decoration: none;
-}   
-
-.page-footer-link:focus {
-    outline: rgb(184, 31, 4) auto 5px;
-}
-
-.page-footer-link:visited {
-    color: #3E2723;
-}
-
 .show-img {
     visibility: visible;
     animation: animateShowImage 0.4s linear alternate;
+}
+
+.match .game-card-img {
+    animation: dance 1s linear infinite 500ms;
 }
 
 .disabled {
@@ -242,11 +202,18 @@ h1 {
 }
 
 
-/* Media Queries */
+/* Media Queries for other devices*/
 @media only screen and (max-width: 600px) {
-    .modal-footer button {
+    .modal-footer button v{
         padding: 0.3em 0.3em;
         width: 50%;
+    }
+    .game-card, .game-card-img {
+        width: 2em;
+        height: 3em;
+    }
+    .h1 {
+        font-size: 2em;
     }
 }
 
@@ -256,8 +223,7 @@ h1 {
         height: 5em;
     }
 
-    /* How to Play Modal */
-    .modal-body .help-tips {
+    .modal-body  {
         padding: 0 2em;
     }
 }
@@ -268,8 +234,7 @@ h1 {
         height: 5.5em;
     }
 
-    /* How to Play Modal */
-    .modal-body .help-tips {
+    .modal-body {
         padding: 0 2.5em;
     }
 }

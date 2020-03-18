@@ -8,7 +8,6 @@ let timer = document.getElementById('timer');
 let modalElement = document.getElementById('gameOverModal');
 let totalGameMovesElement = document.getElementById('totalGameMoves');
 let totalGameTimeElement = document.getElementById('totalGameTime');
-let closeModalIcon = document.getElementById('closeModal');
 let openedCards = [];
 let matchedCards =  [];
 let moves;
@@ -58,9 +57,6 @@ function startGame() {
         cardElementsArray[i].addEventListener("click", displayCard)
     }
 
-    //when game starts show all the cards for a split second
-    flashCards();
-
     //reset moves
     moves = 0;
     counter.innerText = `${moves} move(s)`;
@@ -68,17 +64,6 @@ function startGame() {
     //Reset Timer on game reset
     timer.innerHTML = '0 mins 0 secs';
     clearInterval(interval);
-}
-
-function flashCards() {
-    for(i=0; i<cardElements.length; i++) {
-        cardElements[i].children[0].classList.add("show-img")
-    }
-    setTimeout(function(){
-        for(i=0; i<cardElements.length; i++) {
-            cardElements[i].children[0].classList.remove("show-img")
-        }
-    }, 1000)
 }
 
 function displayCard() {
@@ -185,24 +170,10 @@ function endGame() {
     totalGameMovesElement.innerHTML = moves;
 
     matchedCards = [];
-    closeModal();
 }
 
-function closeModal() {
-    closeModalIcon.addEventListener("click", function() {
-        modalElement.classList.remove("show-modal");
-        startGame();
-    })
-}
 
 function playAgain() {
     modalElement.classList.remove("show-modal");
     startGame();
-}
-
-// wait for some milliseconds before game starts
-window.onload = function () {
-    setTimeout(function() {
-        startGame()
-    }, 1200);
 }
