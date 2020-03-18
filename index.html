@@ -4,135 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <title>MEMORY GAME</title>
+    
 </head>
 <body>
-    <div class = "main-container">
-        <header>
-            <h1>Gotta Match 'Em All</h1>
-        </header>
-
-        <section class = "moves-timer">
-            <span class = "moveCounter" id = "moves">0</span> Move(s)
-            <span class = "countTimer" id = "timer">0 mins 0 sec</span>
-            <button class = "start-btn" id = "start" onclick = "startGame()">Start Game</button>
-        </section>
+    <header>
+        <h1>Gotta Match 'Em All <span></h1>
+    </header>
+        <div class="game-status-details">
+                <span class="move-counter" id="moveCounter"></span>
+                <span class="timer" id="timer">0 mins 0 secs</span>
+            </div>
+            <table class="game-board">
+                <tbody class="game-grid">
+                    <tr class="game-grid-row">
+                        <td class="game-card">
+                            <img class="game-card-img" src = "img/bulbasaur.png" alt="bulbasaur">
+                        </td>
+                        <td class="game-card">
+                            <img class="game-card-img" src="img/charizard.png" alt="charizard">
+                        </td>
+                        <td class="game-card">
+                            <img class="game-card-img" src="img/evee.png" alt="evee">
+                        </td>
+                        <td class="game-card">
+                            <img class="game-card-img" src="img/squirtle.png" alt="squirtle">
+                        </td>
+                    </tr>
+                    <tr class="game-grid-row">
+                        <td class="game-card">
+                            <img class="game-card-img" src="img/pikachu.png" alt="pikachu">
+                        </td>
+                        <td class="game-card">
+                            <img class="game-card-img" src="img/vulpix.png" alt="vulpix">
+                        </td>
+                        <td class="game-card">
+                            <img class="game-card-img" src="img/pikachu.png" alt="pikachu">
+                        </td>
+                        <td class="game-card">
+                            <img class="game-card-img" src="img/vulpix.png" alt="vulpix">
+                        </td>
+                    </tr>
+                    <tr class="game-grid-row">
+                        <td class="game-card">
+                            <img class="game-card-img" src="img/bulbasaur.png" alt="bulbasaur">
+                        </td>
+                        <td class="game-card">
+                            <img class="game-card-img" src="img/charizard.png" alt="charizard">
+                        </td>
+                        <td class="game-card">
+                            <img class="game-card-img" src="img/evee.png" alt="evee">
+                        </td>
+                        <td class="game-card">
+                            <img class="game-card-img" src="img/squirtle.png" alt="squirtle">
+                        </td>
+                    </tr>
+                </tbody>               
+            </table>
+            <div class="start-button-div">
+                <button class="start-button red-button" id="startButton" onClick="startGame()">Start</button>
+            </div>
         
-    <div class = "platform-container">
-        <li class = "card-deck">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
+        <!--Modal on game over -->
+        <div class="modal" id="gameOverModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Game Over</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="message">
+                        <p>Congratulations! You successfully completed the game.</p>
+                        <p>You completed the game using <span id="totalGameMoves"></span> moves
+                            <br>in <span id="totalGameTime">.</span>
+                        </p>
+                        <p>DISCLAIMER: Pokemon is a licenced trademark owned by Nintendo.
+                            <br>I have no claim or rights over it.</p>
+                    </div>
+                <div class="modal-footer">
+                    <button class="brown-button" onClick="playAgain()">Play Again</button>
+                </div>
             </div>
-            <div class = "card-front card-face">
-                <img class = "pokemon" src ="img/pikachu.png">
-            </div>
-        </li>
-        <li class = "card-deck ">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
-            </div>    
-            <div class = "card-front card-face">
-                <img class = "pokemon" src ="img/bulbasaur.png">
-            </div>
-        </li>
-        <li class = "card-deck">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
-            </div>
-            <div class = "card-front card-face">
-                <img class = "pokemon" src =  "img/charizard.png">
-            </div>
-        </li>
-        <li class = "card-deck">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
-            </div>
-            <div class = "card-front card-face">
-                <img class = "pokemon" src ="img/evee.png">
-            </div>
-        </li>
-        <li class = "card-deck">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
-            </div>
-            <div class = "card-front card-face">
-                <img class = "pokemon" src ="img/squirtle.png">
-            </div>
-        </li>
-        <li class = "card-deck">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
-            </div>
-            <div class = "card-front card-face">
-                <img class = "pokemon" src ="img/vulpix.png">
-            </div>
-        </li>
-        <li class = "card-deck">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
-            </div>
-            <div class = "card-front card-face">
-                <img class = "pokemon" src ="img/pikachu.png">
-            </div>
-        </li>
-        <li class = "card-deck">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
-            </div>
-            <div class = "card-front card-face">
-                <img class = "pokemon" src ="img/bulbasaur.png">
-            </div>
-        </li>
-        <li class = "card-deck">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
-            </div>
-            <div class = "card-front card-face">
-                <img class = "pokemon" src =  "img/charizard.png">
-            </div>
-        </li>
-        <li class = "card-deck">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
-            </div>
-            <div class = "card-front card-face">
-                <img class = "pokemon" src ="img/evee.png">
-            </div>
-        </li>
-        <li class = "card-deck">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
-            </div>
-            <div class = "card-front card-face">
-                <img class = "pokemon" src ="img/squirtle.png">
-            </div>
-        </li>
-        <li class = "card-deck">
-            <div class = "card-back card-face">
-                <img class = "pokeball" src ="img/pokeball.png">
-            </div>
-            <div class = "card-front card-face">
-                <img class = "pokemon" src ="img/vulpix.png">
-            </div>
-        </li>
-    </div>
-
-    <div class = "message" id = "gameOver">
-        <div class = "popup">
-        <h2>CONGRATULATIONS!</h2>
-        <p>You made <span id = totalMoves></span> moves.</p>
-        <p>in <span id = totalTime></span></p>
-        <button id = "play-again" onclick = "playAgain()">Play Again</button>
         </div>
-    </div>
-        
-
-    <div class = "disclaimer">
-        <footer>DISCLAIMER:</footer>
-    </div>
-    
     <script src="script.js"></script>
-    </div>
+    
 </body>
 </html>

@@ -1,177 +1,293 @@
-* {
-    box-sizing: border-box;
-}
-
 html {
     min-height: 100vh;
-    cursor: url("http://www.rw-designer.com/cursor-extern.php?id=22253"), auto;
 }
 
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+    font-family: monospace, Arial, Helvetica, sans-serif;
     background: radial-gradient(#ffff31, #e4d00a);
+    cursor: url("http://www.rw-designer.com/cursor-extern.php?id=22253"), auto;
 }
 
-.main-container {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+ol, ul {
+    list-style: none;
+}
+
+em {
+    font-style: italic;
+}
+
+.red-button {
+	-webkit-box-shadow: 3px 4px 0px 0px rgb(145, 7, 7);
+	box-shadow: 3px 4px 0px 0px rgb(145, 7, 7);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, rgb(184, 31, 4)), color-stop(1, #795548));
+	border-radius: 0.3em;
+	border: 1px solid #6D4C41;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-shadow: 0px 1px 0px #8D6E63;
+}
+
+.red-button:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #795548), color-stop(1, rgb(184, 31, 4)));
+	background-color: #795548;
+}
+
+.red-button:active {
+	position: relative;
+	top: 0.15em;
+}
+
+.red-button:focus {
+    outline-color: #D7CCC8;
 }
 
 h1 {
+    margin:auto;
     font-family: 'Quattrocento Sans', sans-serif;
-    font-size: 60px;
-    font-weight: 600;
     color: #FFFFFF;
+    text-align: center;
     text-shadow: 2px 2px #ff0000;
+    font-size: 4em;
+    padding: 0.6em;
+    text-decoration: none;
+}
+
+.game-status-details {
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    max-width: 50%;
+    padding: 0.3em;
     text-align: center;
 }
 
-.moves-timer {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
-}
-
-.timer {
-    display: inline-block;
-    margin: 0 1rem;
-}
-
-.platform-container {
-    margin: auto;
-    margin-top: 5px;
-    width: 50%;
-    height: 75vh;
-    background-color: white;
-    box-shadow: 10px 10px 20px lightgrey;
-    border-radius: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    perspective: 500px;
-}
-
-.card-deck {
-    position: relative;
-    width: 15%;
-    height: 25%;
-    margin: 25px;
-    padding: 1rem;
-    border-radius: 2px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 4px 4px 26px 0 lightblue;
-    border-radius: 5px;
-}
-
-.card-face {
-    position: absolute;
+.move-counter,
+.timer,
+.restart-btn {
     width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    backface-visibility: hidden;
-    transition: transform 500ms ease-in-out;
 }
 
-.card-deck:hover .card-back {
-    transform: rotateY(-180deg);
+.move-counter, .timer {
+    font-size: 1.3em;
 }
 
-.card-deck:hover .card-front {
-    transform: rotateY(0);
+.game-board {
+    max-width: 50%;
+    margin: auto;
+    background-color:white;
+    border-radius: 1em;
+    box-shadow: 0 5px 5px #808080;
 }
 
-.card-deck.matched.pokemon {
+.game-grid-row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.game-card {
+    background-image: url("https://i.imgur.com/n7Ycwr7.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 3em;
+    height: 4.5em;
+    background-color: rgb(173, 218, 233);
+    border-radius: 0.3em;
+    margin: 0.8em;
+    box-shadow: 2px 0 10px #212121;
+}
+
+.game-card-img {
+    background-color: white;
+    visibility: hidden;
+    object-fit: cover;
+    width: 3em;
+    height: 4.5em;
+}
+
+.match {
     animation: dance 1s linear infinite 500ms;
 }
 
-@keyframes dance {
-    0%, 100% {
-        transform: rotate(0);    
-    }
-    25% {
-        transform: rotate(-20deg);
-    }
-    75% {
-        transform: rotate(20deg);
-    }
+.start-button-div {
+    max-width: 50%;
+    margin: 1.5em auto;
+    text-align: center;
 }
 
-.card-back {
-    background: lightblue;
+.start-button { 
+	padding: 0.7em 1.4em;
 }
 
-.pokeball {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.card-front {
-    background-color: #FFFFFF;
-    transform: rotateY(180deg);
-}
-
-.pokemon {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.message {
+/* Game Over Modal */
+.modal {
+    display: none;
     position: fixed;
-    top: 0;
-    bottom: 0;
+    z-index: 1;
     left: 0;
-    right: 0;
-    background: #FFFFFF;
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #FFFFFF;
-    border-radius: 5px;
-    width: 85%;
+.modal-content {
+    width: 80%;
+    margin: auto;
+    padding: 0;
     position: relative;
-    transition: all 5s ease-in-out;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    top: 5%;
+    background-color: #EFEBE9;
+    border: 1px solid #808080;
+    border-radius: 0.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation: animateTop 0.4s;
 }
 
-.play-again {
-    background-color: #141214;
-    padding: 2px;
-    font-size: 2px;
+.modal-header {
+    border-bottom: 1px solid #D7CCC8;
+    padding: 0.6em 1em;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 1.6em 0.3em 1em;
+}
+
+.modal-body .message {
+    text-align: center;
+}
+
+.modal-body .message p {
+    margin-bottom: 0.5em;
+}
+
+
+.modal-footer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 0 1em 1.5em;
+}
+
+.modal-footer button {
+    padding: 0.3em 1em;
+    width: 50%;
+}
+
+
+/* Page Footer */
+.page-footer {
+    border-top: 1px solid #D7CCC8;
+    padding: 0.5em 0;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.page-footer-link {
+    color: #5D4037;
+    font-weight: 700;
+}
+
+.page-footer-link:hover {
+    color: #212121;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.page-footer-link:active {
+    text-decoration: none;
+}   
+
+.page-footer-link:focus {
+    outline: rgb(184, 31, 4) auto 5px;
+}
+
+.page-footer-link:visited {
+    color: #3E2723;
+}
+
+.show-img {
+    visibility: visible;
+    animation: animateShowImage 0.4s linear alternate;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.show-modal {
     display: block;
-    margin: 0 auto;
-    width: 5%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #FFFFFF;
-    border-radius: 5px;
 }
 
-/* @media (max-width: 600px) {
-    .platform-container {
+/* Animations */
+@keyframes animateTop {
+    from { top: -300px; opacity: 0; }
+    to { top: 5%; opacity: 1; }
+}
 
+@keyframes animateShowImage {
+    0% { transform: rotateY(180deg); opacity: 0;}
+    100%{ transform: rotateY(0); opacity: 1; }
+}
+
+
+@keyframes dance {
+    0%, 100% { transform: rotate(0);}
+    25% { transform: rotate(-5deg);}
+    75% { transform: rotate(5deg);}
+}
+
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+    .modal-footer button {
+        padding: 0.3em 0.3em;
+        width: 50%;
     }
-} */
+}
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    .game-card, .game-card-img {
+        width: 4em;
+        height: 5em;
+    }
+
+    /* How to Play Modal */
+    .modal-body .help-tips {
+        padding: 0 2em;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .game-card, .game-card-img {
+        width: 4.5em;
+        height: 5.5em;
+    }
+
+    /* How to Play Modal */
+    .modal-body .help-tips {
+        padding: 0 2.5em;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .game-status-details {
+        display: block;
+    }
+
+    .move-counter,
+    .timer,
+    .restart-btn {
+        width: initial;
+    }
+
+    .game-card, .game-card-img {
+        width: 8em;
+        height: 10em;
+    }
+
+}
